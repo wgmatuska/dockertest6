@@ -2,7 +2,7 @@ services:
   webserver:
     image: python:latest
     volumes:
-      - ./www:/home/user/www
+      - www:/home/user/www
     working_dir: /home/user/www
     command: >
       bash -c "
