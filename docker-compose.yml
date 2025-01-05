@@ -1,0 +1,14 @@
+services:
+  webserver:
+    image: python:latest
+    volumes:
+      - ./www:/home/user/www
+    working_dir: /home/user/www
+    command: >
+      bash -c "
+        useradd -m user &&
+        chown -R user:user /home/user &&
+        su user -c 'python -m http.server 8080'
+      "
+    ports:
+      - "8080:8080"
